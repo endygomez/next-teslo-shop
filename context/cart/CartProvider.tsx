@@ -63,7 +63,7 @@ export const CartProvider: FunctionComponent<Props> = ({ children }) => {
 
 
     useEffect(() => {
-        if (state.cart.length > 0) Cookie.set('cart', JSON.stringify(state.cart));
+        Cookie.set('cart', JSON.stringify( state.cart ));
     }, [state.cart]);
 
 
@@ -132,6 +132,7 @@ export const CartProvider: FunctionComponent<Props> = ({ children }) => {
         Cookie.set('city', address.city);
         Cookie.set('country', address.country);
         Cookie.set('phone', address.phone);
+
         dispatch({ type: '[Cart] - Update Shipping Address', payload: address })
     }
 
