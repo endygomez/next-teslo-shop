@@ -68,7 +68,9 @@ const registerUser = async (req: NextApiRequest, res: NextApiResponse<Data>) => 
 
     try {
         await newUser.save({ validateBeforeSave: true });
+        await db.disconnect();
     } catch (error) {
+        await db.disconnect();
         console.log(error);
         return res.status(500).json({ message: 'revisar logs del servidor' })
     }
