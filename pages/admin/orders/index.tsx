@@ -37,7 +37,7 @@ const columns: GridColDef[] = [
 
 const OrdersPage = () => {
 
-    const { data, error } = useSWR<IOrder[]>('/api/admin/OrdersPage');
+    const { data, error } = useSWR<IOrder[]>('/api/admin/orders');
 
     if (!data && !error) return (<></>);
 
